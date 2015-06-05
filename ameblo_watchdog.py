@@ -17,11 +17,12 @@ class Watchdog:
     - date: watching point (format: %Y-%m-%d %H:%M:%S)
     - interval: access interval sec (more than 1sec)
     '''
-    re_entry = re.compile('entry-[0-9]+.html')
+
+    re_entry = re.compile('entry-.+?+.html')
     re_date = re.compile('\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2}')
 
     def __init__(self, url, action,
-                 interval=10, date=time.strftime('%Y-%m-%d %H:%M:%S')):
+                 interval=60, date=time.strftime('%Y-%m-%d %H:%M:%S')):
         self.url = url.rstrip('/') + '/'
         self.date = date
         self.action = action
